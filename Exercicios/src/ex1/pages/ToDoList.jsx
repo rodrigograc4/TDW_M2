@@ -8,12 +8,16 @@ function ToDoList() {
     const [search, setSearch] = useState("");
 
     useEffect(() => {
-        const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
-        setTasks(savedTasks);
+        const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+        if (savedTasks) {
+            setTasks(savedTasks);
+        }
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("tasks", JSON.stringify(tasks));
+        if (tasks.length > 0) {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
     }, [tasks]);
 
     const addTask = (task) => {
@@ -22,11 +26,11 @@ function ToDoList() {
             text: task,
             completed: false
         };
-        setTasks([...tasks, newTask]);
+        setTasks((prevTasks) => [...prevTasks, newTask]);
     };
 
     const removeTask = (id) => {
-        setTasks(tasks.filter((task) => task.id !== id));
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
     };
 
     const toggleTaskCompletion = (id) => {
