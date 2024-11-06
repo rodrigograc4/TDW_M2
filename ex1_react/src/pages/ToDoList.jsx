@@ -7,35 +7,35 @@ function ToDoList() {
     const [tasks, setTasks] = useState([]);
     const [search, setSearch] = useState("");
 
-    // Carregar tarefas do localStorage
     useEffect(() => {
         const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
         setTasks(savedTasks);
     }, []);
 
-    // Salvar tarefas no localStorage
     useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }, [tasks]);
 
-    // Função para adicionar uma nova tarefa
     const addTask = (task) => {
-        setTasks([...tasks, { text: task, completed: false }]);
+        const newTask = {
+            id: Date.now(),
+            text: task,
+            completed: false
+        };
+        setTasks([...tasks, newTask]);
     };
 
-    // Função para remover uma tarefa
-    const removeTask = (index) => {
-        setTasks(tasks.filter((_, i) => i !== index));
+    const removeTask = (id) => {
+        setTasks(tasks.filter((task) => task.id !== id));
     };
 
-    // Função para marcar uma tarefa como concluída
-    const toggleTaskCompletion = (index) => {
-        const updatedTasks = [...tasks];
-        updatedTasks[index].completed = !updatedTasks[index].completed;
+    const toggleTaskCompletion = (id) => {
+        const updatedTasks = tasks.map((task) =>
+            task.id === id ? { ...task, completed: !task.completed } : task
+        );
         setTasks(updatedTasks);
     };
 
-    // Filtrar tarefas com base na pesquisa
     const filteredTasks = tasks.filter((task) =>
         task.text.toLowerCase().includes(search.toLowerCase())
     );
@@ -49,10 +49,13 @@ function ToDoList() {
                 <AddTask addTask={addTask} />
                 <SearchTask search={search} setSearch={setSearch} />
             </div>
-            <TaskList tasks={filteredTasks} removeTask={removeTask} toggleTaskCompletion={toggleTaskCompletion} />
-        </div >
+            <TaskList
+                tasks={filteredTasks}
+                removeTask={removeTask}
+                toggleTaskCompletion={toggleTaskCompletion}
+            />
+        </div>
     );
 }
 
 export default ToDoList;
-
