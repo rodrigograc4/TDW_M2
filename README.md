@@ -2,16 +2,6 @@
 
 Este é um projeto de exemplo criado com **React** e estilizado com **Tailwind CSS**. Este README orienta sobre como criar um novo projeto React, instalar o Tailwind CSS e configurar o ambiente para começar a desenvolver.
 
----
-
-## 📦 Requisitos
-
-Antes de começar, você precisará dos seguintes itens instalados no seu sistema:
-
-- **Node.js**: [Baixe aqui](https://nodejs.org/) (Recomendado LTS)
-- **npm** (ou **yarn**): O npm vem com o Node.js, então ao instalar o Node.js, você também terá o npm. Caso prefira usar o yarn, [instale-o aqui](https://yarnpkg.com/getting-started/install).
-
----
 
 ## 🚀 Instruções
 
