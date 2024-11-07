@@ -11,11 +11,16 @@ function IndexPage() {
                 backgroundPosition: 'center',
             }}
         >
-            <h1 className="text-3xl font-bold text-blue-600 mb-6">Índice de Exercícios</h1>
-            <ul className="space-y-4">
-                <li className="flex flex-col items-center">
-                    <CardExercicio to="/todolist" title="Exercício 1" />
-                </li>
+            <h1 className="text-4xl font-bold text-white mb-12">Índice de Exercícios</h1>
+            <ul className="space-y-12 mt-6">
+                <div className="flex space-x-12">
+                    <li className="flex flex-col items-center">
+                        <CardExercicio to="/todolist" title="Exercício 1 - ToDo List" />
+                    </li>
+                    <li className="flex flex-col items-center">
+                        <CardExercicio to="/todolist" title="Exercício 2" />
+                    </li>
+                </div>
             </ul>
         </div>
     );
