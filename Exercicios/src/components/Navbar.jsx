@@ -3,14 +3,14 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const Navbar = () => {
     return (
-        <nav className="fixed top-0 left-0 w-full flex items-center justify-between p-4 text-white z-10 px-60">
+        <nav className="w-4/5 flex items-center justify-between p-4 text-white z-10">
             {/* Logo */}
             <div className="flex items-center">
                 <img src="logo.png" alt="Logo" className="h-12 w-auto" />
             </div>
 
-            {/* Search Bar (30% da largura) */}
-            <div className="w-1/4 mx-4 flex items-center relative">
+            {/* Search Bar (hidden on smaller screens) */}
+            <div className="w-1/4 mx-4 flex items-center relative hidden md:flex">
                 <FaMagnifyingGlass className="absolute left-6 text-gray-400 z-10" />
                 <input
                     type="text"
@@ -24,13 +24,13 @@ const Navbar = () => {
                 />
             </div>
 
-            {/* User Info + Browse Button */}
+            {/* User Info + Browse Button (hidden on smaller screens) */}
             <div className="flex items-center space-x-4">
                 {/* Botão Browse sem estilo de fundo */}
-                <button className="text-react-yellow pr-12 py-2.5 focus:outline-none hover:text-blue-500">
+                <button className="text-react-yellow pr-12 py-2.5 focus:outline-none hover:text-blue-500 hidden xl:inline-block">
                     Home
                 </button>
-                <button className="text-white pr-12 py-2.5 focus:outline-none hover:text-blue-500">
+                <button className="text-white pr-12 py-2.5 focus:outline-none hover:text-blue-500 hidden xl:inline-block">
                     Browse
                 </button>
 
@@ -50,7 +50,6 @@ const Navbar = () => {
                         className="h-7 w-7 rounded-full"
                     />
                 </div>
-
             </div>
         </nav>
     );
