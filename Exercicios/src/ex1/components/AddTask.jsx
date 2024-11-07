@@ -10,6 +10,12 @@ function AddTask({ addTask }) {
         }
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            handleAddTask();
+        }
+    };
+
     return (
         <div className="flex w-full">
             <input
@@ -18,6 +24,7 @@ function AddTask({ addTask }) {
                 placeholder="Add a task"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
             <button
                 className="bg-clean-orange text-white p-2 rounded-r-lg hover:bg-clean-orange transition duration-200 ease-in-out"
