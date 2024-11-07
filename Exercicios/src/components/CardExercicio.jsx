@@ -7,16 +7,16 @@ function CardExercicio({ to, title }) {
             to={to}
             className="w-80 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
         >
-            <div className="w-full h-40 border-b border-gray-300">
+            <div className="w-full h-40 border-b border-gray-300 overflow-hidden">
                 <iframe
                     src={to}
                     title="Preview"
                     style={{
-                        width: '100vw',
-                        height: '100vh',
-                        transform: 'scale(0.165)',
+                        width: '1920px',           // Largura fixa do iframe
+                        height: '940px',          // Altura fixa do iframe
+                        transform: 'scale(0.17)', // Ajuste para caber no card
                         transformOrigin: 'top left',
-                        pointerEvents: 'none',
+                        pointerEvents: 'none',    // Desativa interações no iframe
                         border: 'none'
                     }}
                 />
