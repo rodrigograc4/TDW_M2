@@ -11,7 +11,7 @@ function IndexPage() {
                 backgroundPosition: 'center',
             }}
         >
-            <h1 className="text-4xl font-bold text-white mb-12">Índice de Exercícios</h1>
+            <h1 className="text-4xl font-bold text-white py-12">Índice de Exercícios</h1>
             <div className="flex flex-wrap justify-center gap-12 mt-6">
                 <CardExercicio to="/todolist" title="Exercício 1 - ToDo List" />
                 <CardExercicio to="/todolist-proptypes" title="Exercício 2 - PropTypes" />
