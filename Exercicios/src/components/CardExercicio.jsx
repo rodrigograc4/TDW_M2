@@ -7,7 +7,7 @@ function CardExercicio({ to, title }) {
             to={to}
             className="w-80 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
         >
-            <div className="w-full h-40 border-b border-gray-300 overflow-hidden">
+            <div className="w-full h-40 overflow-hidden">
                 <iframe
                     src={to}
                     title="Preview"
@@ -22,7 +22,7 @@ function CardExercicio({ to, title }) {
                 />
             </div>
             <div
-                className="block w-full text-center px-4 py-2 transition duration-200"
+                className="block w-full text-center py-2 transition duration-200"
                 style={{
                     background: 'rgba(0, 0, 0, 0.2)',
                     backdropFilter: 'blur(2px)',
