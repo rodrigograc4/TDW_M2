@@ -7,9 +7,11 @@ module.exports = {
     extend: {
       colors: {
         'darkest-red': '#1D1616', // Nome da cor personalizada
-        'off-white': '#f2f2eb',
-        'clean-red': '#72383d',
         'clean-orange': '#ab644b',
+        'off-white': '#f2f2eb',
+        'dark-blue': '#00002a',
+        'clean-blue': '#50949c',
+        'off-blue-white': '#f0f5f5',
       },
     },
   },

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 function AddTask({ addTask }) {
     const [task, setTask] = useState("");
+
+    AddTask.propTypes = {
+        addTask: PropTypes.func.isRequired,
+    };
 
     const handleAddTask = () => {
         if (task.trim()) {
@@ -14,13 +19,13 @@ function AddTask({ addTask }) {
         <div className="flex w-full">
             <input
                 type="text"
-                className="flex-grow p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-clean-orange"
+                className="flex-grow p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-clean-blue"
                 placeholder="Add a task"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
             />
             <button
-                className="bg-clean-orange text-white p-2 rounded-r-lg hover:bg-clean-orange transition duration-200 ease-in-out"
+                className="bg-clean-blue text-white p-2 rounded-r-lg hover:bg-clean-blue transition duration-200 ease-in-out"
                 onClick={handleAddTask}
             >
                 Add

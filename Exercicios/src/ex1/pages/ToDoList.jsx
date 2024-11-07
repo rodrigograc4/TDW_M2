@@ -47,7 +47,7 @@ function ToDoList() {
     return (
         <div className="min-h-screen bg-darkest-red flex items-center justify-center">
             <div className="max-w-2xl mx-auto p-6 bg-off-white to-pink-300 shadow-2xl rounded-lg min-h-[300px] p-12">
-                <h1 className="text-4xl font-bold text-center text-clean-red mb-16">
+                <h1 className="text-4xl font-bold text-center text-clean-orange mb-16">
                     To-Do List
                 </h1>
                 <div className="flex space-x-10 mb-8">
