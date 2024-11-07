@@ -5,7 +5,7 @@ function CardExercicio({ to, title }) {
     return (
         <Link
             to={to}
-            className="w-80 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
+            className="w-80 shadow-lg rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-110"
         >
             <div className="w-full h-40 overflow-hidden">
                 <iframe
@@ -22,13 +22,11 @@ function CardExercicio({ to, title }) {
                 />
             </div>
             <div
-                className="block w-full text-center py-2 transition duration-200"
+                className="block w-full text-center py-2.5 transition duration-200"
                 style={{
-                    background: 'rgba(0, 0, 0, 0.2)',
+                    background: 'rgba(0, 0, 0, 0.3)',
                     backdropFilter: 'blur(2px)',
                     color: 'white',
-                    border: '2px solid rgba(255, 255, 255, 0.2)',
-                    borderRadius: '0 0 8px 8px'
                 }}
             >
                 {title}

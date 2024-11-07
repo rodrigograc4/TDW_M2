@@ -45,19 +45,21 @@ function ToDoList() {
     );
 
     return (
-        <div className="max-w-2xl mx-auto mt-10 p-6 bg-gradient-to-r from-purple-200 to-pink-200 shadow-2xl rounded-lg">
-            <h1 className="text-4xl font-bold text-center text-indigo-700 mb-6">
-                To-Do List
-            </h1>
-            <div className="flex space-x-10 mb-4">
-                <AddTask addTask={addTask} />
-                <SearchTask search={search} setSearch={setSearch} />
+        <div className="min-h-screen bg-darkest-red flex items-center justify-center">
+            <div className="max-w-2xl mx-auto p-6 bg-off-white to-pink-300 shadow-2xl rounded-lg min-h-[300px] p-12">
+                <h1 className="text-4xl font-bold text-center text-clean-red mb-16">
+                    To-Do List
+                </h1>
+                <div className="flex space-x-10 mb-8">
+                    <AddTask addTask={addTask} />
+                    <SearchTask search={search} setSearch={setSearch} />
+                </div>
+                <TaskList
+                    tasks={filteredTasks}
+                    removeTask={removeTask}
+                    toggleTaskCompletion={toggleTaskCompletion}
+                />
             </div>
-            <TaskList
-                tasks={filteredTasks}
-                removeTask={removeTask}
-                toggleTaskCompletion={toggleTaskCompletion}
-            />
         </div>
     );
 }

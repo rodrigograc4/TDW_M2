@@ -2,7 +2,7 @@ import React from "react";
 
 function TaskList({ tasks, removeTask, toggleTaskCompletion }) {
     return (
-        <ul>
+        <ul className="min-h-[300px]">
             {tasks.map((task) => (
                 <li
                     key={task.id}
