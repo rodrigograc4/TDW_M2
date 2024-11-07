@@ -6,7 +6,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'darkest-red': '#1D1616', // Nome da cor personalizada
+        'react-green': '#0c746c', // Nome da cor personalizada
+        'react-yellow': '#e9ba75',
+        'darkest-red': '#1D1616',
         'clean-orange': '#ab644b',
         'off-white': '#f2f2eb',
         'dark-blue': '#00002a',
