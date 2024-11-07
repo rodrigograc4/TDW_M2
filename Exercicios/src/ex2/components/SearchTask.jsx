@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TaskContext } from "../pages/ToDoList";
+import PropTypes from "prop-types";
 
-function SearchTask({ search, setSearch }) {
+function SearchTask() {
+    const { search, setSearch } = useContext(TaskContext);
+
+    SearchTask.propTypes = {
+        search: PropTypes.string,
+        setSearch: PropTypes.func.isRequired,
+    };
+
     return (
         <input
             type="text"

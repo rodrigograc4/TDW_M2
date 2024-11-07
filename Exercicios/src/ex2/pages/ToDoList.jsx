@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+// App.js
+import React, { useState, useEffect, createContext } from "react";
 import AddTask from "../components/AddTask";
 import SearchTask from "../components/SearchTask";
 import TaskList from "../components/TaskList";
+import PropTypes from "prop-types";
+
+export const TaskContext = createContext();
 
 function ToDoList() {
     const [tasks, setTasks] = useState([]);
@@ -21,7 +24,7 @@ function ToDoList() {
     };
 
     useEffect(() => {
-        const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+        const savedTasks = JSON.parse(localStorage.getItem("tasks-ex2"));
         if (savedTasks) {
             setTasks(savedTasks);
         }
@@ -29,7 +32,7 @@ function ToDoList() {
 
     useEffect(() => {
         if (tasks.length > 0) {
-            localStorage.setItem("tasks", JSON.stringify(tasks));
+            localStorage.setItem("tasks-ex2", JSON.stringify(tasks));
         }
     }, [tasks]);
 
@@ -37,7 +40,7 @@ function ToDoList() {
         const newTask = {
             id: Date.now(),
             text: task,
-            completed: false
+            completed: false,
         };
         setTasks((prevTasks) => [...prevTasks, newTask]);
     };
@@ -47,10 +50,11 @@ function ToDoList() {
     };
 
     const toggleTaskCompletion = (id) => {
-        const updatedTasks = tasks.map((task) =>
-            task.id === id ? { ...task, completed: !task.completed } : task
+        setTasks((prevTasks) =>
+            prevTasks.map((task) =>
+                task.id === id ? { ...task, completed: !task.completed } : task
+            )
         );
-        setTasks(updatedTasks);
     };
 
     const filteredTasks = tasks.filter((task) =>
@@ -58,22 +62,29 @@ function ToDoList() {
     );
 
     return (
-        <div className="min-h-screen bg-dark-blue flex items-center justify-center">
-            <div className="max-w-2xl mx-auto p-6 bg-off-blue-white to-pink-300 shadow-2xl rounded-lg min-h-[300px] p-12">
-                <h1 className="text-4xl font-bold text-center text-clean-blue mb-16">
-                    To-Do List with PropTypes
-                </h1>
-                <div className="flex space-x-10 mb-8">
-                    <AddTask addTask={addTask} />
-                    <SearchTask search={search} setSearch={setSearch} />
+        <TaskContext.Provider
+            value={{
+                tasks: filteredTasks,
+                addTask,
+                removeTask,
+                toggleTaskCompletion,
+                search,
+                setSearch,
+            }}
+        >
+            <div className="min-h-screen bg-dark-blue flex items-center justify-center">
+                <div className="max-w-2xl mx-auto p-6 bg-off-blue-white to-pink-300 shadow-2xl rounded-lg min-h-[300px] p-12">
+                    <h1 className="text-4xl font-bold text-center text-clean-blue mb-16">
+                        To-Do List ({filteredTasks.length} {filteredTasks.length === 1 ? "item" : "items"})
+                    </h1>
+                    <div className="flex space-x-10 mb-8">
+                        <AddTask />
+                        <SearchTask />
+                    </div>
+                    <TaskList />
                 </div>
-                <TaskList
-                    tasks={filteredTasks}
-                    removeTask={removeTask}
-                    toggleTaskCompletion={toggleTaskCompletion}
-                />
             </div>
-        </div>
+        </TaskContext.Provider>
     );
 }
 

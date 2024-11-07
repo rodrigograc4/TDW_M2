@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { TaskContext } from "../pages/ToDoList";
 import PropTypes from "prop-types";
 
-function AddTask({ addTask }) {
+function AddTask() {
     const [task, setTask] = useState("");
+    const { addTask } = useContext(TaskContext);
 
     AddTask.propTypes = {
         addTask: PropTypes.func.isRequired,
