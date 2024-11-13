@@ -34,7 +34,7 @@ function IndexPage() {
                         <div className="flex flex-wrap justify-center gap-10">
                             <CardExercicio to="/todolist" title="Exercício 1 - ToDo List" />
                             <CardExercicio to="/todolist-proptypes" title="Exercício 2 - Better ToDo" />
-                            <CardExercicio to="/notfound" title="Exercício 3 - Something" />
+                            <CardExercicio to="/atm" title="Exercício 3 - ATM" />
                             <CardExercicio to="/notfound" title="Exercício 4 - Something" />
                             <CardExercicio to="/notfound" title="Exercício 5 - Something" />
                             <CardExercicio to="/notfound" title="Exercício 6 - Something" />
